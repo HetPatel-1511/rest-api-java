@@ -1,0 +1,1037 @@
+{
+  "info": {
+    "_postman_id": "778567ed-7bec-4458-af86-f5d65c69ba6d",
+    "name": "Employees API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51866337",
+    "_collection_link": "https://go.postman.co/collection/51866337-778567ed-7bec-4458-af86-f5d65c69ba6d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"aa_11\",\r\n    \"password\": \"aasssas\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"aa_11\",\r\n    \"password\": \"aasssas\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Set-Cookie",
+              "value": "token=REAL_JWT_TOKEN_HERE; Expires=Mon, 02 Feb 2026 18:11:32 GMT; Max-Age=3600; Path=/; HttpOnly"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 17:11:33 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 7,\n    \"is_active\": true,\n    \"name\": \"aaa\",\n    \"profile_image\": null,\n    \"token\": \"REAL_JWT_TOKEN_HERE\",\n    \"username\": \"aa_11\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"aaa\",\r\n    \"username\": \"aa_11\",\r\n    \"password\": \"aasssas\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/employees",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Create",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"aaa\",\r\n    \"username\": \"username_unique\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/employees",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:33:20 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 10,\n    \"is_active\": true,\n    \"name\": \"aaa\",\n    \"profile_image\": null,\n    \"username\": \"username_unique\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/employees",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get All",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/employees",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:32:45 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 3,\n        \"is_active\": true,\n        \"name\": \"aaa\",\n        \"profile_image\": null,\n        \"username\": \"aaa_1\"\n    },\n    {\n        \"id\": 6,\n        \"is_active\": true,\n        \"name\": \"abcd\",\n        \"profile_image\": null,\n        \"username\": \"aa_111\"\n    },\n    {\n        \"id\": 7,\n        \"is_active\": true,\n        \"name\": \"aaa\",\n        \"profile_image\": null,\n        \"username\": \"aa_11\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get By Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/employees/6",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "6"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/employees/6",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees",
+                "6"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:32:50 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"is_active\": true,\n    \"name\": \"abcd\",\n    \"profile_image\": null,\n    \"username\": \"aa_111\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Details",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"abcd\",\r\n    \"username\": \"aa_111\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/employees/6",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "6"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Update Details",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"abcd\",\r\n    \"username\": \"aa_111\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/employees/6",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees",
+                "6"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:33:33 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"is_active\": true,\n    \"name\": \"abcd\",\n    \"profile_image\": null,\n    \"username\": \"aa_111\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Is Active",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"abcd\",\r\n    \"username\": \"aa_111\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/employees/6?is_active=1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "6"
+          ],
+          "query": [
+            {
+              "key": "is_active",
+              "value": "1",
+              "description": "True, False, true, false, 1, 0",
+              "type": "text"
+            }
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Update Is Active",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"abcd\",\r\n    \"username\": \"aa_111\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/employees/6?is_active=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees",
+                "6"
+              ],
+              "query": [
+                {
+                  "key": "is_active",
+                  "value": "true",
+                  "description": "True, False, true, false, 1, 0"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:33:46 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 6,\n    \"is_active\": true,\n    \"name\": \"abcd\",\n    \"profile_image\": null,\n    \"username\": \"aa_111\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/employees/8",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "8"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/employees/9",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees",
+                "9"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:34:03 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "true"
+        }
+      ]
+    },
+    {
+      "name": "Upload profile image",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {}
+      },
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "ba5e0020-8843-4373-8fcc-c0b24e142968",
+              "src": "postman-cloud:///1f100350-b57b-44c0-83dd-480d4fbbdebd"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/employees/3/profile-image",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "3",
+            "profile-image"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Upload profile image",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "ba5e0020-8843-4373-8fcc-c0b24e142968",
+                  "src": "postman-cloud:///1f100350-b57b-44c0-83dd-480d4fbbdebd"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/employees/3/profile-image",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "employees",
+                "3",
+                "profile-image"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 12:53:50 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 3,\n    \"is_active\": true,\n    \"name\": \"aaa\",\n    \"profile_image\": \"C:\\\\Users\\\\patelhet\\\\IdeaProjects\\\\rest-api\\\\src\\\\main\\\\uploads\\\\10d7c664-31dd-4808-beea-0cf0ce9db2d2-Screenshot 2026-01-19 185618.png\",\n    \"username\": \"aaa_1\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Profile Image",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/employees/3/profile-image",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "employees",
+            "3",
+            "profile-image"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Controller Version",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v2/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v2",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/v2/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v2",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "24"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 17:32:32 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "This is the v2 login API"
+        }
+      ]
+    },
+    {
+      "name": "URL Path Versioning",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/versioning/v2/employee",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "versioning",
+            "v2",
+            "employee"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "URL Path Versioning",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/versioning/v2/employee",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "versioning",
+                "v2",
+                "employee"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "19"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 17:49:43 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "URI Path Versioning"
+        }
+      ]
+    },
+    {
+      "name": "Query Parameter Versioning",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/versioning/employee/param?version=2",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "versioning",
+            "employee",
+            "param"
+          ],
+          "query": [
+            {
+              "key": "version",
+              "value": "2",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Query Parameter Versioning",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/versioning/employee/param?version=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "versioning",
+                "employee",
+                "param"
+              ],
+              "query": [
+                {
+                  "key": "version",
+                  "value": "2",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "26"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 17:50:50 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "Query Parameter Versioning"
+        }
+      ]
+    },
+    {
+      "name": "Header Versioning",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-VERSION",
+            "value": "2",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/versioning/employee/header",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "versioning",
+            "employee",
+            "header"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Header Versioning",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-VERSION",
+                "value": "2",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/versioning/employee/header",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "versioning",
+                "employee",
+                "header"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "24"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 02 Feb 2026 17:51:51 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "Custom Header Versioning"
+        }
+      ]
+    }
+  ]
+}
