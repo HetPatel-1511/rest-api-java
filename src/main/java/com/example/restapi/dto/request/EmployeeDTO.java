@@ -1,19 +1,20 @@
 package com.example.restapi.dto.request;
 
-import jakarta.validation.constraints.Min;
+import com.example.restapi.dto.Create;
+import com.example.restapi.dto.Update;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class CreateEmployeeDTO {
-    @NotNull
+public class EmployeeDTO {
+    @NotNull(groups = {Create.class, Update.class})
     @Size(max = 200)
     private String name;
 
-    @NotNull
+    @NotNull(groups = {Create.class, Update.class})
     @Size(max = 200)
     private String username;
 
-    @NotNull
+    @NotNull(groups = Create.class)
     @Size(min = 6, message = "Password should have minimum 6 characters")
     private String password;
 

@@ -1,6 +1,6 @@
 package com.example.restapi.mapper;
 
-import com.example.restapi.dto.request.CreateEmployeeDTO;
+import com.example.restapi.dto.request.EmployeeDTO;
 import com.example.restapi.dto.response.AuthEmployeeResponseDTO;
 import com.example.restapi.dto.response.EmployeeResponseDTO;
 import com.example.restapi.entities.Employee;
@@ -18,7 +18,7 @@ public class EntityMapper {
     @Autowired
     private ModelMapper modelMapper;
 
-    public Employee toEmployee(CreateEmployeeDTO employee) {
+    public Employee toEmployee(EmployeeDTO employee) {
         if (employee == null) return null;
         return modelMapper.map(employee, Employee.class);
     }

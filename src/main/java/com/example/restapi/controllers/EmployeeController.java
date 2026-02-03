@@ -1,8 +1,9 @@
 package com.example.restapi.controllers;
 
-import com.example.restapi.dto.request.CreateEmployeeDTO;
+import com.example.restapi.dto.Create;
+import com.example.restapi.dto.Update;
+import com.example.restapi.dto.request.EmployeeDTO;
 import com.example.restapi.dto.request.UpdateEmployeeDTO;
-import com.example.restapi.dto.request.UploadProfileImageDTO;
 import com.example.restapi.dto.response.EmployeeResponseDTO;
 import com.example.restapi.entities.Employee;
 import com.example.restapi.repos.EmployeeRepo;
@@ -12,11 +13,11 @@ import org.springframework.core.io.Resource;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,9 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -47,7 +46,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public EmployeeResponseDTO create(@Valid @RequestBody CreateEmployeeDTO dto){
+    public EmployeeResponseDTO create(@RequestBody @Validated(Create.class) EmployeeDTO dto){
         return employeeService.create(dto);
     }
 
@@ -62,7 +61,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EmployeeResponseDTO> update(@PathVariable Long id, @Valid @RequestBody UpdateEmployeeDTO dto){
+    public ResponseEntity<EmployeeResponseDTO> update(@PathVariable Long id, @RequestBody @Validated(Update.class) EmployeeDTO dto){
         EmployeeResponseDTO resDTO = employeeService.update(id, dto);
         if (resDTO != null) {
             return ResponseEntity.ok(resDTO);

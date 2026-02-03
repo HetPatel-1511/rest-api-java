@@ -1,6 +1,6 @@
 package com.example.restapi.services;
 
-import com.example.restapi.dto.request.CreateEmployeeDTO;
+import com.example.restapi.dto.request.EmployeeDTO;
 import com.example.restapi.dto.request.UpdateEmployeeDTO;
 import com.example.restapi.dto.response.EmployeeResponseDTO;
 import com.example.restapi.entities.Employee;
@@ -11,7 +11,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +46,7 @@ public class EmployeeService {
     }
 
     @Transactional
-    public EmployeeResponseDTO create(CreateEmployeeDTO dto) {
+    public EmployeeResponseDTO create(EmployeeDTO dto) {
         if (employeeRepo.existsByUsername(dto.getUsername())) {
             throw new RuntimeException("Username already exists");
         }
@@ -58,7 +57,7 @@ public class EmployeeService {
     }
 
     @Transactional
-    public EmployeeResponseDTO update(Long id, UpdateEmployeeDTO dto) {
+    public EmployeeResponseDTO update(Long id, EmployeeDTO dto) {
         Employee existing = employeeRepo.findByUsername(dto.getUsername());
         if (existing!=null && existing.getId()!=id) {
             throw new RuntimeException("Username already exists");
